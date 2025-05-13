@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz@0,14..32;1,14..32&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#f4f0ff, #dacdff);
+}
+
+.chatbot-popup {
+  background: #fff;
+  width: 420px;
+  border-radius: 15px;
+  box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.chatbot-popup .chat-header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 15px 22px;
+  background-color: #6d4fc2;
+}
+
+.chatbot-popup .header-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
