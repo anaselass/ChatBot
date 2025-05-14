@@ -8,7 +8,7 @@ const App = () => {
         <div className="chat-header">
           <div className="header-info">
             <ChatBotIcon />
-            <h2 className="logo-text">chatbot</h2>
+            <h2 className="logo-text">Chatbot</h2>
           </div>
           <button class="material-symbols-outlined">keyboard_arrow_down</button>
         </div>
@@ -22,9 +22,8 @@ const App = () => {
             </p>
           </div>
           <div className="message user-message">
-            <ChatBotIcon />
             <p className="message-text">
-              Lorem ipsum dolor sit amet. consectetur adipisicing elit. Quisquam
+              Lorem ipsum dolor sit amet. consectetur adipisicing elit. Quis
             </p>
           </div>
         </div>
