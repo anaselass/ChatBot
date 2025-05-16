@@ -1,9 +1,12 @@
-const ChatMessage = () => {
+import ChatBotIcon from "./ChatBotIcon";
+
+const ChatMessage = ({ chat }) => {
   return (
-    <div className="message user-message">
-      <p className="message-text">
-        Lorem ipsum dolor sit amet. consectetur adipisicing elit. Quis
-      </p>
+    <div
+      className={`message ${chat.role === "model" ? "bot" : "user"}-message`}
+    >
+      {chat.role === "model" && <ChatBotIcon />}
+      <p className="message-text">{chat.text}</p>
     </div>
   );
 };
