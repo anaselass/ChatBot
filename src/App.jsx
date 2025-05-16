@@ -6,8 +6,36 @@ import ChatMessage from "./components/ChatMessage";
 const App = () => {
   const [chatHistory, setChatHistory] = useState([]);
 
-  const generateBotResponse = (history) => {
-    console.log(history);
+  const generateBotResponse = async (history) => {
+    history = history.map(({ role, text }) => ({ role, parts: [{ text }] }));
+
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contents: history,
+      }),
+    };
+
+    try {
+      const response = await fetch(
+        import.meta.env.VITE_API_URL,
+        requestOptions
+      );
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error.message || "Something went wrong");
+      }
+
+      const apiResponseText = data.candidates[0].contents.parts[0].text
+        .replace(/\*\*(.*?)\*\*/g, "$1")
+        .trim();
+      updateHistory(apiResponseText);
+    } catch (error) {
+      console.log("Error:", error);
+    }
   };
 
   return (
