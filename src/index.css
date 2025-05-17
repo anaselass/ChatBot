@@ -10,20 +10,64 @@
 body {
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: linear-gradient(#f4f0ff, #dacdff);
 }
 
+#chatbot-toggler {
+  position: fixed;
+  bottom: 30px;
+  right: 35px;
+  border: none;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  background-color: #6d4fc2;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+#chatbot-toggler span {
+  position: absolute;
+  color: #fff;
+}
+
+.container.show-chatbot #chatbot-toggler {
+  transform: rotate(90deg);
+}
+
+#chatbot-toggler span:last-child,
+.container.show-chatbot #chatbot-toggler span:first-child {
+  opacity: 0;
+}
+
+.container.show-chatbot #chatbot-toggler span:last-child {
+  opacity: 1;
+}
+
 .chatbot-popup {
-  position: relative;
+  position: fixed;
+  bottom: 90px;
+  right: 35px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.2);
   background: #fff;
   width: 420px;
   border-radius: 15px;
+  transform-origin: bottom right;
   box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
     0 32px 64px -48px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.container.show-chatbot .chatbot-popup {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
 }
 
 .chatbot-popup .chat-header {
@@ -80,7 +124,7 @@ body {
   flex-direction: column;
   gap: 20px;
   overflow-y: auto;
-  height: 460px;
+  height: 400px;
   padding: 25px 22px;
   margin-bottom: 82px;
   scrollbar-width: thin;
@@ -182,4 +226,32 @@ body {
 
 .chat-form .message-input:valid ~ button {
   display: block;
+}
+
+@media (max-width: 520px) {
+  #chatbot-toggler {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .chatbot-popup {
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .chatbot-popup .chat-header {
+    padding: 12px 15px;
+  }
+
+  .chat-body {
+    height: calc(90% - 55px);
+    padding: 25px 15px;
+  }
+
+  .chat-footer {
+    padding: 10px 15px 15px;
+  }
 }
