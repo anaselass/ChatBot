@@ -22,7 +22,10 @@ const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
       ]);
       generateBotResponse([
         ...chatHistory,
-        { role: "user", text: userMessage },
+        {
+          role: "user",
+          text: `Using the details, please address this query: ${userMessage}`,
+        },
       ]);
     }, 600);
   };
@@ -36,7 +39,7 @@ const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
         className="message-input"
         required
       />
-      <button class="material-symbols-outlined">keyboard_arrow_up</button>
+      <button className="material-symbols-outlined">keyboard_arrow_up</button>
     </form>
   );
 };

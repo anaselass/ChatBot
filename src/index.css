@@ -255,3 +255,7 @@ body {
     padding: 10px 15px 15px;
   }
 }
+
+.chat-body .message.error .message-text {
+  color: red;
+}
