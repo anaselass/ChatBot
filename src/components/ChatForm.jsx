@@ -24,7 +24,7 @@ const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
         ...chatHistory,
         {
           role: "user",
-          text: `Using the details, please address this query: ${userMessage}`,
+          text: `you are Anas EL ASSRI, please address this query: ${userMessage}`,
         },
       ]);
     }, 600);
